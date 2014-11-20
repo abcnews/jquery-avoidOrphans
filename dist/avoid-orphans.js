@@ -2,7 +2,7 @@
  * avoid-orphans
  * A JQuery plugin that uses non-breaking spaces and non-breaking hyphens to avoid orphans in text.
  *
- * @version 0.0.0
+ * @version 0.0.1
  * @author Peter Chappell <chappell.peter@abc.net.au>
  * */
 
@@ -28,7 +28,7 @@
 		this.init(element, options);
 	}
 
-	AvoidOrphans.VERSION = '0.0.0';
+	AvoidOrphans.VERSION = '0.0.1';
 
 	AvoidOrphans.DEFAULTS = {
 		_nbsp: '&nbsp;',
