@@ -15,7 +15,8 @@ Take a look at the [demo page](build/demo.js) that is included in the project.
 
 ## Tests
 
-Yup, there are tests in the test folder. They run in mocha via grunt (see below).
+Yup, there are tests in the test folder. They run in mocha via grunt (see below). They can also be viewed in the
+browser. Just open `/test/index.html` directly in your browser.
 
 ## Getting started
 
@@ -30,15 +31,25 @@ you're ready.
 
 ### Usage
 
-TODO: Code example.
+With content like this...
 
-### Options
+	<div id="content">
+		<p>I am a paragraph.</p>
+		<p>I am another paragraph.</p>
+		<p>And I know it's debatable whether you could call us all paragraphs, but you get the idea...</p>
+	</div>
 
-TODO: I'm not sure there are any.
+You could apply avoid orphans to each paragraph like so...
 
-### Methods
+	$('#content p').avoidOrphans();
 
-TODO: I'm not sure there are any.
+Note that if you did this...
+
+	$('#content').avoidOrphans();
+
+... only the last line (the last paragraph) would have avoid orphans applied.
+
+Take a look at the demo page to see this in action.
 
 ### Develop
 

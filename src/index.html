@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>avoid-orphans</title>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="scripts/avoid-orphans.js"></script>
+	<script>
+		$(document).ready(function() {
+			$('#avoidOrphansButton1').click(function() {
+				$('#example1 p').avoidOrphans();
+			});
+			$('#avoidOrphansButton2').click(function() {
+				$('#example2').avoidOrphans();
+			});
+		});
+	</script>
+</head>
+<body>
+
+	<h1>Test Page</h1>
+	<p>This is a demo of the avoid-orphans jQuery plugin.</p>
+
+	<hr />
+
+	<h2>Example 1</h2>
+
+	<div style="border: 1px solid #666; padding: 1em; margin: 2em 0; width: 400px;" id="example1">
+		<p>I am a sentence that will leave one word as an orphan by default.</p>
+		<p>I am not one to be outdone. I too by default will beget an orphan.</p>
+	</div>
+
+	<p>To avoid orphans, just call the avoidOrphans jQuery method on the paragraphs.</p>
+
+	<pre><code>$('#example1 p').avoidOrphans();</code></pre>
+
+	<p>Apply avoidOrphans by clicking this button if you like:</p>
+	<p><button id="avoidOrphansButton1">Avoid the orphans</button></p>
+
+	<hr />
+
+	<h2>Example 2</h2>
+
+	<div style="border: 1px solid #666; padding: 1em; margin: 2em 0; width: 400px;" id="example2">
+		<p>I am a sentence that will leave one word as an orphan by default.</p>
+		<p>I am not one to be outdone. I too by default will beget an orphan.</p>
+	</div>
+
+	<p>Note that if you apply avoidOrphans to the container, it will only apply to the last element in the container.</p>
+
+	<pre><code>$('#example2').avoidOrphans();</code></pre>
+
+	<p>Try it out so that you can see what we mean:</p>
+	<p><button id="avoidOrphansButton2">Avoid the orphans</button></p>
+
+	<hr />
+
+</body>
+</html>

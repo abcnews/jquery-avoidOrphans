@@ -146,8 +146,6 @@
 
 	AvoidOrphans.installPlugin = function installPlugin() {
 
-		console.log('installing plugin');
-
 		if (AvoidOrphans.isPluginInstalled) {
 			return;
 		}
