@@ -11,7 +11,7 @@ module.exports = {
 		"files": [{
 			"expand": true,
 			"cwd": "build/scripts",
-			"src": ["accessible-spinner.js"],
+			"src": ["avoid-orphans.js"],
 			"dest": "dist/"
 		}]
 	}

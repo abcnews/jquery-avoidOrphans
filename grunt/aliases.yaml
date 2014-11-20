@@ -8,6 +8,7 @@ dev:
  - 'jshint:js'
  - 'copy:dev'
  - 'string-replace:version'
+ - 'mocha_phantomjs:dev'
 
 build:
  - 'dev'

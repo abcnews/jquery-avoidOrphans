@@ -9,7 +9,7 @@ module.exports = {
 			]
 		},
 		"files": [
-			{"src": "build/scripts/accessible-spinner.js", "dest": "build/scripts/accessible-spinner.js"}
+			{"src": "build/scripts/avoid-orphans.js", "dest": "build/scripts/avoid-orphans.js"}
 		]
 	}
 };

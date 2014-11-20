@@ -31,6 +31,8 @@
 	AvoidOrphans.VERSION = 'current_version';
 
 	AvoidOrphans.DEFAULTS = {
+		_nbsp: '&nbsp;',
+		_nbHyphen: '&#8209;'
 	};
 
 
@@ -39,9 +41,15 @@
 	AvoidOrphans.prototype = {
 
 		init: function (element, options) {
+			var thisPlugin = this;
+
 			this.element = element;
 			this.$element = $(element);
 			this.options = this.getOptions(options);
+
+			this.$element.each(function() {
+				thisPlugin.doElement($(this));
+			});
 		},
 
 		getDefaults: function () {
@@ -56,6 +64,58 @@
 		// use for setting new options on the plugin (options can be changed between start/stop)
 		setOptions: function(newOptions) {
 			this.options = $.extend({}, this.options, newOptions);
+		},
+
+		getNewNodeContent: function(text) {
+			var lastWord,
+				nodeTextAsArray;
+
+			nodeTextAsArray = text.split(' ');
+			lastWord = nodeTextAsArray.pop();
+
+			if (lastWord.indexOf('-') > 0) {
+				// last word has a hyphen so replace that with a non-breaking hyphen and call it a day
+				lastWord = lastWord.replace('-', this.options._nbHyphen);
+				if (nodeTextAsArray.length) {
+					return nodeTextAsArray.join(' ') + ' ' + lastWord;
+				} else {
+					return lastWord;
+				}
+			} else if (lastWord === '') {
+				// last word is just a space (before the next node)
+				return nodeTextAsArray.join(' ') + this.options._nbsp;
+			} else {
+				// put a nbsp between the last word and the rest
+				return nodeTextAsArray.join(' ') + this.options._nbsp + lastWord;
+			}
+		},
+
+		doElement: function($elem) {
+			var elemContents,
+				$nodeToCheck,
+				nodeToCheckText,
+				newNodeText;
+
+			elemContents = $elem.contents();
+
+			if (elemContents.length === 1) {
+				$elem.html(this.getNewNodeContent($elem.text().trim()));
+			} else {
+				// work backwards through the nodes until we find one with a space or hyphen
+				for (var i = elemContents.length - 1; i >=0; i--) {
+					$nodeToCheck = $(elemContents[i]);
+					nodeToCheckText = $nodeToCheck.text();
+					if (nodeToCheckText.indexOf(' ') >= 0 || nodeToCheckText.indexOf('-') >= 0 && (elemContents[i].nodeType === 1 || elemContents[i].nodeType === 3)) {
+						newNodeText = this.getNewNodeContent(nodeToCheckText);
+						if (elemContents[i].nodeType === 1) {
+							$nodeToCheck.html(newNodeText);
+						} else {
+							$nodeToCheck.replaceWith(newNodeText); // doesn't work for text nodes
+						}
+						break;
+					}
+				}
+			}
 		}
 
 	};
@@ -64,28 +124,16 @@
 
 	/* PLUGIN DEFINITION */
 
-	function Plugin(arg1, methodOptions) {
+	function Plugin(options) {
 		return this.each(function () {
-			var $this, dataKey, data, method, options;
+			var $this, dataKey, data;
 
 			$this   = $(this);
 			dataKey = 'plugin-avoid-orphans';
 			data    = $this.data(dataKey);
-			if (typeof arg1 === 'object') {
-				options = arg1;
-			} else {
-				options = methodOptions;
-				method = arg1;
-			}
 
-			if (!data && method === 'destroy') {
-				return;
-			}
 			if (!data) {
 				$this.data(dataKey, (data = new AvoidOrphans(this, options)));
-			}
-			if (typeof method === 'string') {
-				data[method](options);
 			}
 		});
 	}
@@ -97,6 +145,8 @@
 	AvoidOrphans.isPluginInstalled = false;
 
 	AvoidOrphans.installPlugin = function installPlugin() {
+
+		console.log('installing plugin');
 
 		if (AvoidOrphans.isPluginInstalled) {
 			return;

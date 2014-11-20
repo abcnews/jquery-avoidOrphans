@@ -1,0 +1,26 @@
+{
+    "curly": true,
+    "eqeqeq": true,
+    "immed": true,
+    "latedef": false,
+    "newcap": true,
+    "noarg": true,
+    "sub": true,
+    "undef": true,
+    "unused": true,
+    "boss": true,
+    "eqnull": true,
+    "es5": false,
+    "strict": false,
+    "evil": true,
+    "node": true,
+    "browser": true,
+    "globals": {
+        "$": false,
+        "_": false,
+        "d3": false,
+        "ABC": false,
+	    "define": false
+    },
+    "smarttabs": true
+}

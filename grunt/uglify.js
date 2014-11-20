@@ -4,7 +4,7 @@ module.exports = {
 			"preserveComments": "none"
 		},
 		files: {
-			'dist/accessible-spinner.min.js': ['build/scripts/accessible-spinner.js']
+			'dist/avoid-orphans.min.js': ['build/scripts/avoid-orphans.js']
 		}
 	}
 };
