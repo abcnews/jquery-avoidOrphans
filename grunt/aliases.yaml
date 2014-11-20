@@ -1,0 +1,15 @@
+default:
+ - 'dev'
+ - 'connect:dev'
+ - 'watch'
+
+dev:
+ - 'clean'
+ - 'jshint:js'
+ - 'copy:dev'
+ - 'string-replace:version'
+
+build:
+ - 'dev'
+ - 'uglify:prod'
+ - 'copy:build'
