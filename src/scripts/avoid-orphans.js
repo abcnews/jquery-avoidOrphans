@@ -99,7 +99,7 @@
 			elemContents = $elem.contents();
 
 			if (elemContents.length === 1) {
-				$elem.html(this.getNewNodeContent($elem.text().trim()));
+				$elem.html(this.getNewNodeContent($.trim($elem.text())));
 			} else {
 				// work backwards through the nodes until we find one with a space or hyphen
 				for (var i = elemContents.length - 1; i >=0; i--) {
