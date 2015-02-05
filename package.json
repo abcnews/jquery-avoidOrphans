@@ -7,6 +7,7 @@
     "email": "Chappell.Peter@abc.net.au",
     "url": ""
   },
+  "license": "ISC",
   "main": "src/scripts/avoid-orphans.js",
   "devDependencies": {
     "expect.js": "^0.3.1",
