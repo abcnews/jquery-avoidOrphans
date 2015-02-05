@@ -3,6 +3,8 @@
 A JQuery plugin that uses non-breaking spaces and non-breaking hyphens to avoid orphans in text (single words
 on a new line at the end a paragraph or block of text).
 
+Demo page: [http://abcnews.github.io/jquery-avoidOrphans/](http://abcnews.github.io/jquery-avoidOrphans/)
+
 ## Dependencies
 
 * JQuery ('cause it's a JQuery plugin)
