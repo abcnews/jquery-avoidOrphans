@@ -67,7 +67,8 @@ With the default grunt task running you can take a look at the demo page at http
 
 ### Build
 
-Run `grunt build` to build the project. This will create new versions of the js files in the dist folder.
+Run `grunt build` to build the project. This will create new versions of the js files in the dist folder and update
+the published demo page.
 
 ## Contributing
 
