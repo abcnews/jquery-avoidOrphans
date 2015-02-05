@@ -3,6 +3,8 @@
 A JQuery plugin that uses non-breaking spaces and non-breaking hyphens to avoid orphans in text (single words
 on a new line at the end a paragraph or block of text).
 
+Demo page: [http://abcnews.github.io/jquery-avoidOrphans/](http://abcnews.github.io/jquery-avoidOrphans/)
+
 ## Dependencies
 
 * JQuery ('cause it's a JQuery plugin)
@@ -65,7 +67,8 @@ With the default grunt task running you can take a look at the demo page at http
 
 ### Build
 
-Run `grunt build` to build the project. This will create new versions of the js files in the dist folder.
+Run `grunt build` to build the project. This will create new versions of the js files in the dist folder and update
+the published demo page.
 
 ## Contributing
 
