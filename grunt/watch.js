@@ -9,7 +9,12 @@ module.exports = {
 	},
 	"js": {
 		"files": "src/scripts/**/*",
-		"tasks": ["jshint:js"],
+		"tasks": ["jshint:js", "mocha_phantomjs:dev"],
+		"interrupt": true
+	},
+	"tests": {
+		"files": "test/**/*",
+		"tasks": ["mocha_phantomjs:dev"],
 		"interrupt": true
 	},
 	"copy": {

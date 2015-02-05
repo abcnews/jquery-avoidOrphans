@@ -9,10 +9,6 @@ on a new line at the end a paragraph or block of text).
 
 For development you'll need [Node.js](http://nodejs.org/download/) and the dependencies managed via package.json.
 
-## Demo
-
-Take a look at the [demo page](build/demo.js) that is included in the project.
-
 ## Tests
 
 Yup, there are tests in the test folder. They run in mocha via grunt (see below). They can also be viewed in the
@@ -21,6 +17,9 @@ browser. Just open `/test/index.html` directly in your browser.
 ## Getting started
 
 AvoidOrphans can be used in any browserify or AMD project out of the box. Just `require()` it.
+
+Built (minified and unminified) JS can be found in the dist folder and can be used without needing to build the project
+yourself.
 
 For global browser environments, you can use add one of the JavaScript files in the `dist` folder to your page.
 
@@ -58,7 +57,17 @@ Run `npm install` to locally install Node package dependencies, then run the def
 * Runs `grunt dev` to create a development build (see Tasks, below)
 * Starts up a development server in the build directory, running on [http://localhost:8000](http://localhost:8000)
 * Watches files under `src/` for changes, triggering partial development builds as required
+* Runs the tests in phantom js and runs them again when js or test files change.
+
+### Demo
+
+With the default grunt task running you can take a look at the demo page at http://localhost:8000/.
 
 ### Build
 
 Run `grunt build` to build the project. This will create new versions of the js files in the dist folder.
+
+## Contributing
+
+In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed
+functionality. Lint and test your code using the Grunt tasks included in the project (and described above).
