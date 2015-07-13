@@ -96,6 +96,11 @@
 				nodeToCheckText,
 				newNodeText;
 
+			// we can't do anything when there is only one or two words
+			if ($elem.text().split(' ').length <= 2) {
+				return false;
+			}
+
 			elemContents = $elem.contents();
 
 			if (elemContents.length === 1) {
