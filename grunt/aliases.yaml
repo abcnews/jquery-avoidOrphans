@@ -14,4 +14,7 @@ build:
  - 'dev'
  - 'uglify:prod'
  - 'copy:build'
+
+release:
+ - 'build'
  - 'gh-pages'
