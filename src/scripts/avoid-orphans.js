@@ -32,7 +32,8 @@
 
 	AvoidOrphans.DEFAULTS = {
 		_nbsp: '&nbsp;',
-		_nbHyphen: '&#8209;'
+		_nbHyphen: '&#8209;',
+		wordCountThreshold: 2
 	};
 
 
@@ -97,7 +98,7 @@
 				newNodeText;
 
 			// we can't do anything when there is only one or two words
-			if ($elem.text().split(' ').length <= 2) {
+			if ($elem.text().split(' ').length <= this.options.wordCountThreshold) {
 				return false;
 			}
 
