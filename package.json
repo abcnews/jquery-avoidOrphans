@@ -1,6 +1,6 @@
 {
   "name": "jquery-avoid-orphans",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "A JQuery plugin that uses non-breaking spaces and non-breaking hyphens to avoid orphans in text.",
   "author": {
     "name": "chappellp8b",
