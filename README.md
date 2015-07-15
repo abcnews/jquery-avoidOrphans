@@ -30,7 +30,7 @@ you're ready.
 
 	AvoidOrphans.installPlugin();
 
-### Usage
+## Usage
 
 With content like this...
 
@@ -52,7 +52,25 @@ Note that if you did this...
 
 Take a look at the demo page to see this in action.
 
-### Develop
+### Options
+
+If you really want to you can override the defaults...
+
+	AvoidOrphans.DEFAULTS = {
+		_nbsp: '&nbsp;',        // the character to use for the non-breaking space
+		_nbHyphen: '&#8209;',   // the character to use for the non-breaking hyphen
+		wordCountThreshold: 2   // the number of words in total needed in order for us to do anything
+	};
+
+Note that by default, avoidOrphans won't do anything if there is only one or two words in total in the element (if two
+words don't fit in a space, you probably actually do want them to wrap or maybe you need a bigger space). You can use
+the wordCountThreshold option to override this like so...
+
+	$('#content').avoidOrphans({
+		wordCountThreshold: 1
+	});
+
+## Develop
 
 Run `npm install` to locally install Node package dependencies, then run the default `grunt` task which:
 
@@ -61,14 +79,18 @@ Run `npm install` to locally install Node package dependencies, then run the def
 * Watches files under `src/` for changes, triggering partial development builds as required
 * Runs the tests in phantom js and runs them again when js or test files change.
 
-### Demo
-
 With the default grunt task running you can take a look at the demo page at http://localhost:8000/.
+
+You can also view the tests in a browser
 
 ### Build
 
-Run `grunt build` to build the project. This will create new versions of the js files in the dist folder and update
-the published demo page.
+Run `grunt build` to build the project. This will create new versions of the js files in the dist folder. You should do
+this as part of making any PRs etc.
+
+### Release
+
+Run `grunt release` to do a build AND publish the demo page. Run this after a PR has been accepted and merged.
 
 ## Contributing
 

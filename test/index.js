@@ -101,11 +101,31 @@ describe('Avoid Orphans', function(){
 		$test.avoidOrphans();
 		expect($test.html()).to.be('This is a single line with a repeated word&nbsp;repeated');
 	});
-	
+
 	it('works for multiple elements in a container', function() {
 		$test = $('<div><p>This is a single line</p><p>This is a single line with a link at the <a href="#">end</a></p><p>This is a single line ending with a hyphened-word</p></div>');
 		$('p', $test).avoidOrphans();
 		expect($test.html()).to.be('<p>This is a single&nbsp;line</p><p>This is a single line with a link at the&nbsp;<a href="#">end</a></p><p>This is a single line ending with a hyphened‑word</p>');
+	});
+
+	it('doesn\'t do anything when there\'s only one word', function() {
+		$test = $('<div><p>Word</p></div>');
+		$('p', $test).avoidOrphans();
+		expect($test.html()).to.be('<p>Word</p>');
+	});
+
+	it('doesn\'t do anything when there\'s only two words', function() {
+		$test = $('<div><p>Two Words</p></div>');
+		$('p', $test).avoidOrphans();
+		expect($test.html()).to.be('<p>Two Words</p>');
+	});
+
+	it('does do only two words if you *really* want it to', function() {
+		$test = $('<div><p>Two Words</p></div>');
+		$('p', $test).avoidOrphans({
+			wordCountThreshold: 1
+		});
+		expect($test.html()).to.be('<p>Two&nbsp;Words</p>');
 	});
 
 });
